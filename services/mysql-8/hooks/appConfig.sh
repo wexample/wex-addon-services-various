@@ -3,7 +3,7 @@
 mysql8AppConfig() {
   _wexLog "MySql : configuration"
   printf "\n" >> "${WEX_FILEPATH_REL_CONFIG_BUILD}"
-  wex app::config/addTitle -t="MySql8"
+  wex app::config/addTitle -t="MySql8\n"
 
   _wexLog "MySql : set DB_CONTAINER"
   wex app::config/setValue -k=DB_CONTAINER -v="mysql8"
