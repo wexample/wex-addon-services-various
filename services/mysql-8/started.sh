@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 mysql8Started() {
-  . ${WEX_WEXAMPLE_SITE_CONFIG}
+  . ${WEX_FILEPATH_REL_CONFIG}
 
   _wexMessage "Lock MySQL site.cnf access"
 

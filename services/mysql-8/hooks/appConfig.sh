@@ -7,7 +7,7 @@ mysql8AppConfig() {
 
   _wexLog "MySql : set DB_CONTAINER"
   wex app::config/setValue -k=DB_CONTAINER -v="mysql8"
-  wex app::config/setValue -f=.wex/tmp/config -k=MYSQL_DB_PASSWORD -v="testPass"
+  wex app::config/setValue -k=MYSQL_DB_PASSWORD -v="testPass"
 
   local MYSQL_DB_HOST
   local MYSQL_DB_NAME
@@ -21,11 +21,11 @@ mysql8AppConfig() {
   MYSQL_DB_PORT=$([ "${MYSQL_DB_PORT}" != "" ] && { echo "${MYSQL_DB_PORT}"; } || echo 3306 )
   MYSQL_DB_USER=$([ "${MYSQL_DB_USER}" != "" ] && { echo "${MYSQL_DB_USER}"; } || echo "root" )
 
-  wex app::config/setValue -f=.wex/tmp/config -k=MYSQL_DB_HOST -v="${MYSQL_DB_HOST}"
-  wex app::config/setValue -f=.wex/tmp/config -k=MYSQL_DB_NAME -v="${MYSQL_DB_NAME}"
-  wex app::config/setValue -f=.wex/tmp/config -k=MYSQL_DB_PASSWORD -v="${MYSQL_DB_PASSWORD}"
-  wex app::config/setValue -f=.wex/tmp/config -k=MYSQL_DB_PORT -v="${MYSQL_DB_PORT}"
-  wex app::config/setValue -f=.wex/tmp/config -k=MYSQL_DB_USER -v="${MYSQL_DB_USER}"
+  wex app::config/setValue -k=MYSQL_DB_HOST -v="${MYSQL_DB_HOST}"
+  wex app::config/setValue -k=MYSQL_DB_NAME -v="${MYSQL_DB_NAME}"
+  wex app::config/setValue -k=MYSQL_DB_PASSWORD -v="${MYSQL_DB_PASSWORD}"
+  wex app::config/setValue -k=MYSQL_DB_PORT -v="${MYSQL_DB_PORT}"
+  wex app::config/setValue -k=MYSQL_DB_USER -v="${MYSQL_DB_USER}"
 
   _wexLog "MySql : Bind files to config"
   wex config/bindFiles -s=mysql -e=cnf

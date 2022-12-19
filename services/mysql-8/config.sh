@@ -6,7 +6,7 @@ mysql8Config() {
   wex app::config/addTitle -t="Mysql8"
 
   # Change main container name only.
-  wex app::config/setValue -f=.wex/tmp/config -k=DB_CONTAINER -v="mysql8"
+  wex app::config/setValue -k=DB_CONTAINER -v="mysql8"
 
   wex service/templates -s=mysql -e=cnf
 

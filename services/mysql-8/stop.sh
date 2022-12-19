@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 mysql8Stop() {
-  . ${WEX_WEXAMPLE_SITE_CONFIG}
+  . ${WEX_FILEPATH_REL_CONFIG}
 
   _wexMessage "Free MySQL site.cnf access"
 
