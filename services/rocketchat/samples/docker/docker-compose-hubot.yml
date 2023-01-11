@@ -1,4 +1,3 @@
-        # We use this container
         extends:
             file: ${WEX_COMPOSE_YML_ROCKETCHAT}
             service: hubot
