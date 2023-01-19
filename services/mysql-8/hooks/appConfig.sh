@@ -28,7 +28,7 @@ mysql8AppConfig() {
   wex app::config/setValue -k=MYSQL_DB_USER -v="${MYSQL_DB_USER}"
 
   _wexLog "MySql : Bind files to config"
-  wex config/bindFiles -s=mysql -e=cnf
+  wex app::config/bindFiles -s=mysql -e=cnf
 
   # Create connexion file info
   local DB_CONNECTION_FILE="${WEX_DIR_APP_TMP}mysql.cnf"
