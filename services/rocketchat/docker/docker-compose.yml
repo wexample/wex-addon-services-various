@@ -1,5 +1,3 @@
-version: '3'
-
 services:
     rocketchat:
         image: rocket.chat:${ROCKETCHAT_VERSION}
@@ -13,5 +11,6 @@ services:
           - MAIL_URL=smtp://smtp.mailgun.org
         volumes:
           - ${APP_PATH_ROOT}/uploads:/app/uploads
-        networks:
-          - wex_net
+        extends:
+            file: ${WEX_COMPOSE_YML_DEFAULT}
+            service: default

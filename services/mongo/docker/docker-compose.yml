@@ -1,13 +1,11 @@
-version: '3'
-
 services:
     mongo:
         container_name: '${APP_NAME_INTERNAL}_mongo'
         image: mongo:${MONGO_VERSION}
-        restart: always
         volumes:
           - ${APP_PATH_WEX}mongo/data:/data/db
           - ${APP_PATH_WEX}mongo/dumps:/dump
         command: mongod --oplogSize 128 --replSet rs0 --storageEngine=wiredTiger --bind_ip_all --port 27017
-        networks:
-          - wex_net
+        extends:
+            file: ${WEX_COMPOSE_YML_DEFAULT}
+            service: default
