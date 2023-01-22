@@ -15,19 +15,3 @@ services:
           - ${APP_PATH_ROOT}/uploads:/app/uploads
         networks:
           - wex_net
-
-    hubot:
-        image: rocketchat/hubot-rocketchat:v1.0.11
-        restart: unless-stopped
-        container_name: ${APP_NAME_INTERNAL}_rocketchat_hubot
-        environment:
-          - ROCKETCHAT_URL=${APP_NAME_INTERNAL}_rocketchat:3000
-          - ROCKETCHAT_ROOM=GENERAL
-          - ROCKETCHAT_USER=hubot
-          - ROCKETCHAT_PASSWORD=vchgdsvcghdvcdsjvcds
-          - BOT_NAME=hubot
-          - EXTERNAL_SCRIPTS=hubot-help,hubot-seen,hubot-links,hubot-diagnostics
-        volumes:
-          - ${APP_PATH_ROOT}/hubot/scripts:/home/hubot/scripts
-        networks:
-          - wex_net
