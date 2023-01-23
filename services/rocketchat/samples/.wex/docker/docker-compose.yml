@@ -2,7 +2,7 @@
             file: ${WEX_COMPOSE_YML_ROCKETCHAT}
             service: rocketchat
         depends_on:
-          - ${APP_NAME}_mongo
+          - ${APP_NAME}_mongo_6
         environment:
           - VIRTUAL_HOST=${DOMAIN_MAIN}
           - LETSENCRYPT_HOST=${DOMAIN_MAIN}
