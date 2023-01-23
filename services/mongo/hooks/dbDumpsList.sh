@@ -2,7 +2,6 @@
 
 mongoDbDumpsList() {
   local FILES
-  local FILES_FILTERED
   local DIR=.wex/mongo/dumps
   FILES=$(find "${DIR}" -maxdepth  1 -exec basename {} \;)
 
