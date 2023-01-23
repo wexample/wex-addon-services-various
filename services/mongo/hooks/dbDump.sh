@@ -9,7 +9,8 @@ mongoDbDump() {
   _wexLog "Mongo : Zip data in ${DUMP_NAME}.zip"
   zip -r ".wex/mongo/dumps/${DUMP_NAME}.zip" ".wex/mongo/dumps/${DUMP_NAME}"
 
-# TODO change permission
-#  _wexLog "Mongo : Cleaning up"
-#  rm -rf ".wex/mongo/dumps/${DUMP_NAME}"
+  _wexLog "Mongo : Cleaning up"
+  rm -rf ".wex/mongo/dumps/${DUMP_NAME}"
+
+  echo .wex/mongo/dumps/${DUMP_NAME}.zip
 }
