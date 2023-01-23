@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+WEX_DIR_APP_MONGO=${WEX_DIR_APP_DATA}mongo/
+WEX_DIR_APP_MONGO_DUMPS=${WEX_DIR_APP_MONGO}dumps/

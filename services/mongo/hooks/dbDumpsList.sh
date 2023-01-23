@@ -2,8 +2,7 @@
 
 mongoDbDumpsList() {
   local FILES
-  local DIR=.wex/mongo/dumps
-  FILES=$(find "${DIR}" -maxdepth  1 -exec basename {} \;)
+  FILES=$(find "${WEX_DIR_APP_MONGO_DUMPS}" -maxdepth  1 -exec basename {} \;)
 
   # Initialize an empty array
   FILES_TO_KEEP=()
@@ -11,7 +10,7 @@ mongoDbDumpsList() {
   # Loop through each file
   for FILE in ${FILES[@]}; do
       # Check if the file is a directory or ends with .zip
-      if [ -d "${DIR}/${FILE}" ] || [[ ${FILE} =~ \.zip$ ]]; then
+      if [ -d "${WEX_DIR_APP_MONGO_DUMPS}/${FILE}" ] || [[ ${FILE} =~ \.zip$ ]]; then
           FILES_TO_KEEP+=(${FILE})
       fi
   done
