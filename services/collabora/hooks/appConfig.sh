@@ -7,5 +7,5 @@ collaboraAppConfig() {
   wex app::config/setValue -k=COLLABORA_VERSION -v="${COLLABORA_VERSION}"
 
   # Must use the "default" user, but unable to override value with empty one.
-  wex app::config/setValue -k=USER_UID -v=""
+  wex app::config/setValue -k=APP_USER_UID -v=""
 }
