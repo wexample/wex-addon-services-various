@@ -9,21 +9,21 @@ nextcloudAppStarted() {
     _wexMessage "Nextcloud : Restarting app including container"
     wex app/restart
 
-    _wexLog "Nextcloud : Define configuration protocol"
-    local PROTOCOL=https;
-    if [[ ${APP_ENV} == local ]];then
-      PROTOCOL=http
-    fi
-
     # Can't place this in appFirstStartInit, as this will be the second start of the app
     # and APP_INITIALIZED should be set to true.
     _wexLog "Nextcloud : Waiting 60 seconds for first install"
     sleep 60
 
-    sudo wex file/textReplace -f=config.php -r="s/NEXTCLOUD_PROTOCOL/${PROTOCOL}/"
-
     _wexLog "Nextcloud : Defining trusted hostname : ${DOMAIN_MAIN}"
-    wex app/exec -u=33 -c="php occ config:system:set trusted_domains 2 --value=${DOMAIN_MAIN}"
+    sudo wex app/exec -u=33 -c="php occ config:system:set trusted_domains 0 --value=${DOMAIN_MAIN}"
+
+    _wexLog "Nextcloud : Define configuration protocol"
+    local PROTOCOL=https;
+
+    if [[ ${APP_ENV} == local ]];then
+      PROTOCOL=http
+    fi
+    sudo wex app/exec -u=33 -c="php occ config:system:set overwriteprotocol --value=http"
 
     return
   fi
