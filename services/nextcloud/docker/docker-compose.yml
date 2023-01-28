@@ -2,12 +2,11 @@ services:
     nextcloud:
         container_name: '${APP_NAME_INTERNAL}_nextcloud'
         image: nextcloud:${NEXTCLOUD_VERSION}
-        restart: always
         environment:
           - VIRTUAL_HOST=${APP_NAME}.wex
           - MYSQL_HOST=${MYSQL_DB_HOST}
           - MYSQL_DATABASE=${MYSQL_DB_NAME}
-          - MYSQL_USER=root
+          - MYSQL_USER=${MYSQL_DB_USER}
           - MYSQL_PASSWORD=${MYSQL_DB_PASSWORD}
         volumes:
             - ${APP_PATH_ROOT}data:/var/www/html

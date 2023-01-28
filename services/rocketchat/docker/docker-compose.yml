@@ -1,16 +1,11 @@
 services:
     rocketchat:
         image: rocket.chat:${ROCKETCHAT_VERSION}
-        restart: unless-stopped
         container_name: ${APP_NAME_INTERNAL}_rocketchat
-        environment:
-          - VIRTUAL_HOST=${APP_NAME}.wex
-          - ROOT_URL=http://localhost:3000
-          - MONGO_URL=mongodb://${APP_NAME_INTERNAL}_mongo:27017/rocketchat
-          - MONGO_OPLOG_URL=mongodb://${APP_NAME_INTERNAL}_mongo:27017/local
-          - MAIL_URL=smtp://smtp.mailgun.org
         volumes:
           - ${APP_PATH_ROOT}/uploads:/app/uploads
         extends:
             file: ${WEX_COMPOSE_YML_DEFAULT}
             service: default
+        depends_on:
+          - ${APP_NAME}_mongo_6
