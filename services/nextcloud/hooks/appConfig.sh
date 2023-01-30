@@ -3,9 +3,6 @@
 nextcloudAppConfig() {
   . "${WEX_FILEPATH_REL_CONFIG}"
 
-  wex app::config/setValue -k=MAIN_CONTAINER_NAME -v=nextcloud
-  wex app::config/setValue -k=NEXTCLOUD_VERSION -v="${NEXTCLOUD_VERSION}"
-
   if [ "$(wex app::service/user -s=mysql)" = "true" ] || [ "$(wex app::service/user -s="mysql-8")" = "true" ] || [ "$(wex app::service/user -s="maria-10")" = "true" ];then
     _wexLog "Configuring MySQL / MariaDB for NextCloud"
 
