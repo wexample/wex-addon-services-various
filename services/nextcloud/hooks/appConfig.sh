@@ -11,7 +11,7 @@ nextcloudAppConfig() {
 
     MARIA_DB_HOST=${MARIA_DB_HOST:-"${NAME}_maria_10"}
     MARIA_DB_NAME=${MARIA_DB_NAME:-"root"}
-    MARIA_DB_PASSWORD=${MARIA_DB_PASSWORD:-"thisIsAReallyNotSecurePassword!"}
+    MARIA_DB_PASSWORD=${MARIA_DB_PASSWORD:-${WEX_DEFAULT_INSECURE_PASSWORD}}
     MARIA_DB_PORT=${MARIA_DB_PORT:-3306}
     MARIA_DB_USER=${MARIA_DB_USER:-"root"}
 
@@ -26,7 +26,7 @@ nextcloudAppConfig() {
     export MYSQL_DB_PORT=3306
     export MYSQL_DB_NAME=${NAME}
     export MYSQL_DB_USER=root
-    export MYSQL_DB_PASSWORD="thisIsAReallyNotSecurePassword!"
+    export MYSQL_DB_PASSWORD=${WEX_DEFAULT_INSECURE_PASSWORD}
 
     local NEXTCLOUD_CONFIG=''
     echo -e "\nMYSQL_DB_HOST="${MYSQL_DB_HOST} >> ${WEX_WEXAMPLE_APP_FILE_CONFIG}
@@ -37,7 +37,7 @@ nextcloudAppConfig() {
 
     MARIA_DB_HOST=${MARIA_DB_HOST:-"${NAME}_mysql8"}
     MARIA_DB_NAME=${MARIA_DB_NAME:-"root"}
-    MARIA_DB_PASSWORD=${MARIA_DB_PASSWORD:-"thisIsAReallyNotSecurePassword!"}
+    MARIA_DB_PASSWORD=${MARIA_DB_PASSWORD:-${WEX_DEFAULT_INSECURE_PASSWORD}}
     MARIA_DB_PORT=${MARIA_DB_PORT:-3306}
     MARIA_DB_USER=${MARIA_DB_USER:-"root"}
 
