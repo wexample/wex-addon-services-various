@@ -1,0 +1,4 @@
+        environment:
+          #- VIRTUAL_PROTO=https
+          - LETSENCRYPT_HOST=${DOMAIN_MAIN}
+          - LETSENCRYPT_EMAIL=${EMAIL}
