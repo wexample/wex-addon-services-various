@@ -6,10 +6,10 @@ services:
       ports:
         - '4567:22'
       volumes:
-        - ${APP_PATH_WEX}gitlab/backups:/var/opt/gitlab/backups
-        - ${APP_PATH_WEX}gitlab/config:/etc/gitlab
-        - ${APP_PATH_WEX}gitlab/logs:/var/log/gitlab
-        - ${APP_PATH_WEX}gitlab/data:/var/opt/gitlab
+        - ${APP_PATH_ROOT}backups:/var/opt/gitlab/backups
+        - ${APP_PATH_ROOT}config:/etc/gitlab
+        - ${APP_PATH_ROOT}logs:/var/log/gitlab
+        - ${APP_PATH_ROOT}data:/var/opt/gitlab
       environment:
         - VIRTUAL_HOST=${DOMAIN_MAIN}
         - SMTP_DOMAIN=${DOMAIN_MAIN}
