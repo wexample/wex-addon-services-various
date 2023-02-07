@@ -20,7 +20,7 @@ services:
         - GENERIC_TIMEZONE=Europe/Paris
       volumes:
         # Minimal env files.
-        - ${APP_PATH_WEX}n8n:/home/node/.n8n
+        - ${APP_PATH_ROOT}n8n:/home/node/.n8n
       extends:
           file: ${WEX_COMPOSE_YML_DEFAULT}
           service: default
