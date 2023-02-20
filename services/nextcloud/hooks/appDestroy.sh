@@ -5,8 +5,8 @@ nextcloudAppDestroy() {
   sudo rm -rf data
 
   _wexLog "Nextcloud : resetting config.php"
-  wex own/this -f=config.php
+  wex-exec own/this -f=config.php
 
-  local SERVICE_DIR=$(wex app::service/dir -s=nextcloud)
+  local SERVICE_DIR=$(wex-exec app::service/dir -s=nextcloud)
   sudo cp "${SERVICE_DIR}samples/config.php" .
 }

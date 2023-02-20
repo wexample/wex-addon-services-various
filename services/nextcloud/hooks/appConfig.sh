@@ -3,7 +3,7 @@
 nextcloudAppConfig() {
   . "${WEX_FILEPATH_REL_CONFIG}"
 
-  if [ "$(wex app::service/user -s=mysql)" = "true" ] || [ "$(wex app::service/user -s="mysql-8")" = "true" ] || [ "$(wex app::service/user -s="maria-10")" = "true" ];then
+  if [ "$(wex-exec app::service/user -s=mysql)" = "true" ] || [ "$(wex-exec app::service/user -s="mysql-8")" = "true" ] || [ "$(wex-exec app::service/user -s="maria-10")" = "true" ];then
     _wexLog "Configuring MySQL / MariaDB for NextCloud"
 
     MARIA_DB_HOST=${MARIA_DB_HOST:-"${NAME}_maria_10"}
@@ -12,11 +12,11 @@ nextcloudAppConfig() {
     MARIA_DB_PORT=${MARIA_DB_PORT:-3306}
     MARIA_DB_USER=${MARIA_DB_USER:-"root"}
 
-    wex app::config/setValue -k=MARIA_DB_HOST -v="${MARIA_DB_HOST}"
-    wex app::config/setValue -k=MARIA_DB_NAME -v="${MARIA_DB_NAME}"
-    wex app::config/setValue -k=MARIA_DB_PASSWORD -v="${MARIA_DB_PASSWORD}"
-    wex app::config/setValue -k=MARIA_DB_PORT -v="${MARIA_DB_PORT}"
-    wex app::config/setValue -k=MARIA_DB_USER -v="${MARIA_DB_USER}"
+    wex-exec app::config/setValue -k=MARIA_DB_HOST -v="${MARIA_DB_HOST}"
+    wex-exec app::config/setValue -k=MARIA_DB_NAME -v="${MARIA_DB_NAME}"
+    wex-exec app::config/setValue -k=MARIA_DB_PASSWORD -v="${MARIA_DB_PASSWORD}"
+    wex-exec app::config/setValue -k=MARIA_DB_PORT -v="${MARIA_DB_PORT}"
+    wex-exec app::config/setValue -k=MARIA_DB_USER -v="${MARIA_DB_USER}"
 
     # Export default credentials if not found in framework.
     export MYSQL_DB_HOST=${NAME}_nextcloud
@@ -38,10 +38,10 @@ nextcloudAppConfig() {
     MARIA_DB_PORT=${MARIA_DB_PORT:-3306}
     MARIA_DB_USER=${MARIA_DB_USER:-"root"}
 
-    wex app::config/setValue -k=MARIA_DB_HOST -v="${MARIA_DB_HOST}"
-    wex app::config/setValue -k=MARIA_DB_NAME -v="${MARIA_DB_NAME}"
-    wex app::config/setValue -k=MARIA_DB_PASSWORD -v="${MARIA_DB_PASSWORD}"
-    wex app::config/setValue -k=MARIA_DB_PORT -v="${MARIA_DB_PORT}"
-    wex app::config/setValue -k=MARIA_DB_USER -v="${MARIA_DB_USER}"
+    wex-exec app::config/setValue -k=MARIA_DB_HOST -v="${MARIA_DB_HOST}"
+    wex-exec app::config/setValue -k=MARIA_DB_NAME -v="${MARIA_DB_NAME}"
+    wex-exec app::config/setValue -k=MARIA_DB_PASSWORD -v="${MARIA_DB_PASSWORD}"
+    wex-exec app::config/setValue -k=MARIA_DB_PORT -v="${MARIA_DB_PORT}"
+    wex-exec app::config/setValue -k=MARIA_DB_USER -v="${MARIA_DB_USER}"
   fi
 }

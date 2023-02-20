@@ -7,7 +7,7 @@ nextcloudAppStarted() {
     NEXTCLOUD_FIRST_START=false
 
     _wexMessage "Nextcloud : Restarting app including container"
-    wex app/restart
+    wex-exec app/restart
 
     # Can't place this in appFirstStartInit, as this will be the second start of the app
     # and APP_INITIALIZED should be set to true.
