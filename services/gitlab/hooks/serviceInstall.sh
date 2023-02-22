@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-gitlabInit() {
-  # TODO
+gitlabServiceInstall() {
+  # Should be done later
   # > set external_url to the main domain without https
   # > set gitlab_ssh_host to the main domain
   # > set gitlab_ssh_port to the custom port (4567)
