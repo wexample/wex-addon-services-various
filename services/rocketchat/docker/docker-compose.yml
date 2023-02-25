@@ -13,4 +13,4 @@ services:
             file: ${WEX_COMPOSE_YML_DEFAULT}
             service: default
         depends_on:
-          - ${APP_NAME}_mongo_6
+          - ${APP_NAME}_mongo-6
