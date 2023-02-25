@@ -15,7 +15,7 @@ nextcloudAppStarted() {
     sleep 60
 
     _wexLog "Nextcloud : Defining trusted hostname : ${DOMAIN_MAIN}"
-    sudo wex app/exec -u=33 -c="php occ config:system:set trusted_domains 0 --value=${DOMAIN_MAIN}"
+    sudo wex-exec app/exec -u=33 -c="php occ config:system:set trusted_domains 0 --value=${DOMAIN_MAIN}"
 
     _wexLog "Nextcloud : Define configuration protocol"
     local PROTOCOL=https;
@@ -23,7 +23,7 @@ nextcloudAppStarted() {
     if [[ ${APP_ENV} == local ]];then
       PROTOCOL=http
     fi
-    sudo wex app/exec -u=33 -c="php occ config:system:set overwriteprotocol --value=http"
+    sudo wex-exec app/exec -u=33 -c="php occ config:system:set overwriteprotocol --value=http"
 
     return
   fi
