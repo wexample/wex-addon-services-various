@@ -3,7 +3,7 @@
 nextcloudAppConfig() {
   . "${WEX_FILEPATH_REL_CONFIG}"
 
-  if [ "$(wex-exec app::service/user -s=mysql)" = "true" ] || [ "$(wex-exec app::service/user -s="mysql-8")" = "true" ] || [ "$(wex-exec app::service/user -s="maria-10")" = "true" ];then
+  if [ "$(wex-exec app::service/user -s=mysql)" = "true" ] || [ "$(wex-exec app::service/user -s="mysql-8")" = "true" ] || [ "$(wex-exec app::service/user -s="maria-10")" = "true" ]; then
     _wexLog "Configuring MySQL / MariaDB for NextCloud"
 
     MARIA_DB_HOST=${MARIA_DB_HOST:-"${NAME}_maria_10"}
@@ -26,11 +26,11 @@ nextcloudAppConfig() {
     export MYSQL_DB_PASSWORD=${WEX_DEFAULT_INSECURE_PASSWORD}
 
     local NEXTCLOUD_CONFIG=''
-    echo -e "\nMYSQL_DB_HOST="${MYSQL_DB_HOST} >> ${WEX_WEXAMPLE_APP_FILE_CONFIG}
-    echo -e "\nMYSQL_DB_PORT="${MYSQL_DB_PORT} >> ${WEX_WEXAMPLE_APP_FILE_CONFIG}
-    echo -e "\nMYSQL_DB_NAME="${MYSQL_DB_NAME} >> ${WEX_WEXAMPLE_APP_FILE_CONFIG}
-    echo -e "\nMYSQL_DB_USER="${MYSQL_DB_USER} >> ${WEX_WEXAMPLE_APP_FILE_CONFIG}
-    echo -e "\nMYSQL_DB_PASSWORD="${MYSQL_DB_PASSWORD} >> ${WEX_WEXAMPLE_APP_FILE_CONFIG}
+    echo -e "\nMYSQL_DB_HOST="${MYSQL_DB_HOST} >>${WEX_WEXAMPLE_APP_FILE_CONFIG}
+    echo -e "\nMYSQL_DB_PORT="${MYSQL_DB_PORT} >>${WEX_WEXAMPLE_APP_FILE_CONFIG}
+    echo -e "\nMYSQL_DB_NAME="${MYSQL_DB_NAME} >>${WEX_WEXAMPLE_APP_FILE_CONFIG}
+    echo -e "\nMYSQL_DB_USER="${MYSQL_DB_USER} >>${WEX_WEXAMPLE_APP_FILE_CONFIG}
+    echo -e "\nMYSQL_DB_PASSWORD="${MYSQL_DB_PASSWORD} >>${WEX_WEXAMPLE_APP_FILE_CONFIG}
 
     MARIA_DB_HOST=${MARIA_DB_HOST:-"${NAME}_mysql8"}
     MARIA_DB_NAME=${MARIA_DB_NAME:-"root"}
