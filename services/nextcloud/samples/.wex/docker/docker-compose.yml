@@ -2,7 +2,7 @@
           file: ${WEX_COMPOSE_YML_NEXTCLOUD}
           service: nextcloud
         depends_on:
-          - ${APP_NAME}_maria_10
+          - ${APP_NAME}_maria-10
         # Should be defined at least for first installation.
         environment:
           - NEXTCLOUD_ADMIN_USER=admin
