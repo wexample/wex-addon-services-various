@@ -1,5 +1,5 @@
         environment:
           - LETSENCRYPT_EMAIL=${EMAIL}
-          - LETSENCRYPT_HOST=${DOMAIN_MAIN}
+          - LETSENCRYPT_HOST=${DOMAINS}
           - VIRTUAL_HOST=${DOMAINS}
           - VIRTUAL_PROTO=https
