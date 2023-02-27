@@ -2,7 +2,7 @@
             file: ${WEX_COMPOSE_YML_ROCKETCHAT}
             service: rocketchat
         environment:
-          - VIRTUAL_HOST=${DOMAIN_MAIN}
+          - VIRTUAL_HOST=${DOMAINS}
           - LETSENCRYPT_HOST=${DOMAIN_MAIN}
           - LETSENCRYPT_EMAIL=${EMAIL}
           - ROOT_URL=http://${DOMAIN_MAIN}
