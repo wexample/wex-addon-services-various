@@ -4,7 +4,7 @@ matomoServiceInstall() {
   # Inherit MySQL config from PHP
   wex-exec service/exec -s=php-8 -sf -c=serviceInstall -a="${1}"
 
-  wex-exec service/install -i -s=php-8 -g=${1} \
+  wex-exec service/install -s=php-8 -g=${1} \
     -ic=false \
     -id=false
 
