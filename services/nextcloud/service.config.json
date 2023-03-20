@@ -1,5 +1,5 @@
 {
   "dependencies": [
-    "mysql-8"
+    "maria-10"
   ]
 }
