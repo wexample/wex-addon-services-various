@@ -1,8 +1,10 @@
-        extends:
-            file: ${WEX_COMPOSE_YML_ROCKETCHAT}
-            service: rocketchat
-        environment:
-          - VIRTUAL_HOST=${DOMAINS}
-          - LETSENCRYPT_HOST=${DOMAINS}
-          - LETSENCRYPT_EMAIL=${EMAIL}
-          - ROOT_URL=http://${DOMAIN_MAIN}
+services:
+  rocketchat:
+    extends:
+      file: ${WEX_COMPOSE_YML_ROCKETCHAT}
+      service: rocketchat
+    environment:
+      - VIRTUAL_HOST=${DOMAINS}
+      - LETSENCRYPT_HOST=${DOMAINS}
+      - LETSENCRYPT_EMAIL=${EMAIL}
+      - ROOT_URL=http://${DOMAIN_MAIN}

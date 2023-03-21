@@ -1,3 +1,5 @@
-        extends:
-          file: ${WEX_COMPOSE_YML_GITLAB}
-          service: gitlab
+services:
+  gitlab:
+    extends:
+      file: ${WEX_COMPOSE_YML_GITLAB}
+      service: gitlab

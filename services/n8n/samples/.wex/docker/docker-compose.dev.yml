@@ -1,3 +1,5 @@
-        environment:
-          - LETSENCRYPT_HOST=${DOMAINS}
-          - LETSENCRYPT_EMAIL=${EMAIL}
+services:
+  n8n:
+    environment:
+      - LETSENCRYPT_HOST=${DOMAINS}
+      - LETSENCRYPT_EMAIL=${EMAIL}

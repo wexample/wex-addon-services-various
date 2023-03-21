@@ -1,3 +1,5 @@
-        extends:
-          file: ${WEX_COMPOSE_YML_JENKINS}
-          service: jenkins
+services:
+  jenkins:
+    extends:
+      file: ${WEX_COMPOSE_YML_JENKINS}
+      service: jenkins

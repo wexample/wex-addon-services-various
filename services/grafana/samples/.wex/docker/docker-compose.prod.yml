@@ -1,3 +1,5 @@
-        environment:
-          - LETSENCRYPT_EMAIL=${EMAIL}
-          - LETSENCRYPT_HOST=${DOMAINS}
+services:
+  grafana:
+    environment:
+      - LETSENCRYPT_EMAIL=${EMAIL}
+      - LETSENCRYPT_HOST=${DOMAINS}
