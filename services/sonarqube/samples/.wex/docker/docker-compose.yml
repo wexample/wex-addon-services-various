@@ -1,7 +1,7 @@
 services:
   sonarqube:
     extends:
-      file: ${WEX_COMPOSE_YML_SONARQUBE}
+      file: ${SERVICE_SONARQUBE_YML_ENV}
       service: sonarqube
     depends_on:
-      - ${APP_NAME}_postgres
+      - ${GLOBAL_NAME}_postgres

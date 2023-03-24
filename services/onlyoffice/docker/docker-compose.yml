@@ -1,16 +1,16 @@
 services:
     onlyoffice:
-        container_name: '${APP_NAME_INTERNAL}_onlyoffice'
+        container_name: '${CONTEXT_NAME}_onlyoffice'
         image: 'onlyoffice/documentserver:${ONLYOFFICE_DOCUMENT_SERVER_VERSION}'
         ports:
             # MPP-compatible instant messaging client (for ONLYOFFICE Talk correct work)
             - "5222:5222"
         environment:
-            - VIRTUAL_HOST=${DOMAINS}
+            - VIRTUAL_HOST=${CONTEXT_DOMAINS}
             - VIRTUAL_PORT=80
         volumes:
-            - ${APP_PATH_ROOT}logs:/var/log/onlyoffice
-            - ${APP_PATH_ROOT}data:/var/www/onlyoffice/Data
+            - ${CONTEXT_DIR}logs:/var/log/onlyoffice
+            - ${CONTEXT_DIR}data:/var/www/onlyoffice/Data
         extends:
-            file: ${WEX_COMPOSE_YML_DEFAULT}
+            file: ${SERVICE_DEFAULT_YML_ENV}
             service: default

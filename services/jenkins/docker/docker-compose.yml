@@ -1,18 +1,15 @@
 services:
   jenkins:
     extends:
-        file: ${WEX_COMPOSE_YML_DEFAULT}
+        file: ${SERVICE_DEFAULT_YML_ENV}
         service: default
-    container_name: '${APP_NAME_INTERNAL}_jenkins'
+    container_name: '${CONTEXT_NAME}_jenkins'
     image: 'jenkins/jenkins:${JENKINS_VERSION}'
     ports:
       - "50000:50000"
     environment:
-      - VIRTUAL_HOST=${DOMAINS}
+      - VIRTUAL_HOST=${CONTEXT_DOMAINS}
       - VIRTUAL_PORT=8080
     volumes:
-      - ${APP_PATH_ROOT}config:/jenkins_config
-      - ${APP_PATH_ROOT}home:/var/jenkins_home
-    extends:
-        file: ${WEX_COMPOSE_YML_DEFAULT}
-        service: default
+      - ${CONTEXT_DIR}config:/jenkins_config
+      - ${CONTEXT_DIR}home:/var/jenkins_home

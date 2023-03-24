@@ -1,5 +1,5 @@
 services:
   jenkins:
     extends:
-      file: ${WEX_COMPOSE_YML_JENKINS}
+      file: ${SERVICE_JENKINS_YML_ENV}
       service: jenkins

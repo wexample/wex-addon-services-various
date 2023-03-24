@@ -1,5 +1,5 @@
 services:
   n8n:
     extends:
-      file: ${WEX_COMPOSE_YML_N8N}
+      file: ${SERVICE_N8N_YML_ENV}
       service: n8n

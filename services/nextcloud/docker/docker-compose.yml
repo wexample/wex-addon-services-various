@@ -1,6 +1,6 @@
 services:
     nextcloud:
-        container_name: '${APP_NAME_INTERNAL}_nextcloud'
+        container_name: '${CONTEXT_NAME}_nextcloud'
         image: nextcloud:${NEXTCLOUD_VERSION}
         environment:
           - VIRTUAL_HOST=${APP_NAME}.wex
@@ -9,9 +9,9 @@ services:
           - MYSQL_USER=${MYSQL_DB_USER}
           - MYSQL_PASSWORD=${MYSQL_DB_PASSWORD}
         volumes:
-            - ${APP_PATH_ROOT}data:/var/www/html
-            - ${APP_PATH_ROOT}extra-addons:/mnt/extra-addons
-            - ${APP_PATH_ROOT}config.php:/var/www/html/config/wex.config.php
+            - ${CONTEXT_DIR}data:/var/www/html
+            - ${CONTEXT_DIR}extra-addons:/mnt/extra-addons
+            - ${CONTEXT_DIR}config.php:/var/www/html/config/wex.config.php
         extends:
-            file: ${WEX_COMPOSE_YML_DEFAULT}
+            file: ${SERVICE_DEFAULT_YML_ENV}
             service: default

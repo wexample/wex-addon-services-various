@@ -1,20 +1,20 @@
 services:
     gitlab:
-      container_name: ${APP_NAME_INTERNAL}_gitlab
+      container_name: ${CONTEXT_NAME}_gitlab
       image: gitlab/gitlab-ce:${GITLAB_VERSION}
       hostname: ${DOMAIN_MAIN}
       ports:
         - '4567:22'
       volumes:
-        - ${APP_PATH_ROOT}backups:/var/opt/gitlab/backups
-        - ${APP_PATH_ROOT}config:/etc/gitlab
-        - ${APP_PATH_ROOT}logs:/var/log/gitlab
-        - ${APP_PATH_ROOT}data:/var/opt/gitlab
+        - ${CONTEXT_DIR}backups:/var/opt/gitlab/backups
+        - ${CONTEXT_DIR}config:/etc/gitlab
+        - ${CONTEXT_DIR}logs:/var/log/gitlab
+        - ${CONTEXT_DIR}data:/var/opt/gitlab
       environment:
-        - VIRTUAL_HOST=${DOMAINS}
+        - VIRTUAL_HOST=${CONTEXT_DOMAINS}
         - SMTP_DOMAIN=${DOMAIN_MAIN}
         - VIRTUAL_PORT=80
         - GITLAB_SHELL_SSH_PORT=4567
       extends:
-          file: ${WEX_COMPOSE_YML_DEFAULT}
+          file: ${SERVICE_DEFAULT_YML_ENV}
           service: default

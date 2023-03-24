@@ -1,11 +1,11 @@
 services:
   n8n:
-    container_name: ${APP_NAME_INTERNAL}_n8n
+    container_name: ${CONTEXT_NAME}_n8n
     image: n8nio/n8n:${N8N_VERSION}
     ports:
       - 5678:5678
     environment:
-      - VIRTUAL_HOST=${DOMAINS}
+      - VIRTUAL_HOST=${CONTEXT_DOMAINS}
       - VIRTUAL_PORT=5678
       - N8N_BASIC_AUTH_ACTIVE=true
       - N8N_BASIC_AUTH_USER=${N8N_BASIC_AUTH_USER}
@@ -18,7 +18,7 @@ services:
       - GENERIC_TIMEZONE=Europe/Paris
     volumes:
       # Minimal env files.
-      - ${APP_PATH_ROOT}n8n:/home/node/.n8n
+      - ${CONTEXT_DIR}n8n:/home/node/.n8n
     extends:
-      file: ${WEX_COMPOSE_YML_DEFAULT}
+      file: ${SERVICE_DEFAULT_YML_ENV}
       service: default
